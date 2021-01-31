@@ -41,7 +41,9 @@ function* fetchDetails(action) {
        let id = action.payload
         const response = yield axios.get(`/api/details/${action.payload}`);
         console.log('return movie with id of:', id, response);
-        
+        const results = response.data;
+    
+          yield put({ type: "SET_DETAILS", payload: results });
         
     } catch (error) {
       console.log("get details error", error);
@@ -50,7 +52,6 @@ function* fetchDetails(action) {
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
-
 // Used to store movies returned from the server
 const movies = (state = [], action) => {
   switch (action.type) {

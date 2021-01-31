@@ -5,7 +5,7 @@ const pool = require("../modules/pool");
 router.get("/:id", (req, res) => {
     const id = req.params.id
   // Add query to get the description.  I will JOIN tables once I get the details page to show with the description.
-  const queryText = `SELECT "movies".title, "movies".description  
+  const queryText = `SELECT "movies".title, "movies".description, "movies".poster  
   FROM "movies"
   WHERE id = $1`;
   pool
