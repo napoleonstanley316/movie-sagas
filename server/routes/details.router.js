@@ -4,8 +4,8 @@ const pool = require("../modules/pool");
 
 router.get("/:id", (req, res) => {
     const id = req.params.id
-  // Add query to get all genres
-  const queryText = `SELECT "movies".description  
+  // Add query to get the description.  I will JOIN tables once I get the details page to show with the description.
+  const queryText = `SELECT "movies".title, "movies".description  
   FROM "movies"
   WHERE id = $1`;
   pool
@@ -18,6 +18,7 @@ router.get("/:id", (req, res) => {
       res.sendStatus(500);
     });
 });
+
 
 module.exports = router;
 

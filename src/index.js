@@ -43,8 +43,8 @@ function* fetchDetails(action) {
         console.log('return movie with id of:', id, response);
         
         
-    } catch {
-      console.log("get details error");
+    } catch (error) {
+      console.log("get details error", error);
     }
   }
 
