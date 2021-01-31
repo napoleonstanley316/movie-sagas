@@ -7,6 +7,7 @@ router.get("/:id", (req, res) => {
   // Add query to get the description.  I will JOIN tables once I get the details page to show with the description.
   const queryText = `SELECT "movies".title, "movies".description, "movies".poster  
   FROM "movies"
+  JOIN "movie_genres" ON "movie_genres".genre_id = "movies".id
   WHERE id = $1`;
   pool
     .query(queryText, [id])

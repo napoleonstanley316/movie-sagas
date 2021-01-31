@@ -15,7 +15,7 @@ console.log('details reducer returns:', movie);
 
 return (
     <div>
-  <h3>Details for {movie?.title}</h3>
+  <h3>{movie?.title} Details:</h3>
   <p>{movie?.description}</p>
   <img src={movie?.poster} />
   </div>

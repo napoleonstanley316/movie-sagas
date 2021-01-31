@@ -3,6 +3,7 @@ import "./App.css";
 import MovieList from "../MovieList/MovieList";
 import MovieItem from "../MovieItem/MovieItem";
 import MovieDetails from "../MovieDetails/MovieDetails";
+import AddMovie from "../AddMovie/AddMovie";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         {/* Details page */}
         <Route path="/details" component={MovieDetails} />
         {/* Add Movie page */}
+        <Route path="/add" component={AddMovie} />
       </Router>
     </div>
   );
