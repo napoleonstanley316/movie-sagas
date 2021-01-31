@@ -24,8 +24,8 @@ function* fetchAllMovies() {
     const movies = yield axios.get("/api/movie");
     console.log("get all:", movies.data);
     yield put({ type: "SET_MOVIES", payload: movies.data });
-  } catch {
-    console.log("get all movies error");
+  } catch (error) {
+    console.log("get all movies error", error);
   }
 }
 
@@ -35,14 +35,16 @@ function* fetchAllGenres() {
   console.log("looking for details");
 }
 
-function* fetchDetails() {
+function* fetchDetails(action) {
     // get all movies from the DB
     try {
-      const details = yield axios.get("/api/details");
-      console.log("get all:", details.data);
-      yield get({ type: "SET_DETAILS", payload: details.description });
+       let id = action.payload
+        const response = yield axios.get(`/api/details/${action.payload}`);
+        console.log('return movie with id of:', id, response);
+        
+        
     } catch {
-      console.log("get all movies error");
+      console.log("get details error");
     }
   }
 

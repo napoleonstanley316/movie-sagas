@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./MovieList.css";
+import MovieItem from '../MovieItem/MovieItem.jsx';
 
 function MovieList(movie) {
-  const handleMovieClick = (event) => {
-    console.log("movie clicked");
-    dispatch({ type: "MOVIE_DETAILS", payload: movie.id });
-  
-  };
+
+ 
+
+  console.log(movie);
 
   const dispatch = useDispatch();
   const movies = useSelector((store) => store.movies);
@@ -20,20 +20,13 @@ function MovieList(movie) {
   return (
     <main>
       <h1>MovieList</h1>
+      <div>
       <section className="movies">
-        {movies.map((movie) => {
-          return (
-            <div key={movie.id}>
-              <h3>{movie.title}</h3>
-              <img
-                src={movie.poster}
-                alt={movie.title}
-                onClick={handleMovieClick}
-              />
-            </div>
-          );
-        })}
+        {movies.map((movie) => (
+          <MovieItem movie={movie}/>
+        ))}
       </section>
+      </div>
     </main>
   );
 }
