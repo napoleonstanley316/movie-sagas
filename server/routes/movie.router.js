@@ -19,10 +19,9 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   console.log(req.body);
   // RETURNING "id" will give us back the id of the created movie
-  const insertMovieQuery = `
-  INSERT INTO "movies" ("title", "poster", "description")
+  const insertMovieQuery = `INSERT INTO "movies" ("title", "poster", "description")
   VALUES ($1, $2, $3)
-  RETURNING "id";`
+  RETURNING "id"`;
 
   // FIRST QUERY MAKES MOVIE
   pool.query(insertMovieQuery, [req.body.title, req.body.poster, req.body.description])
@@ -54,3 +53,18 @@ router.post('/', (req, res) => {
 })
 
 module.exports = router;
+
+
+
+
+// SELECT * FROM "movies"
+// JOIN "movies_genres" ON "movies".id = "movies_genres".movie_id
+// JOIN "genres" ON "genres".id = "movies_genres".genre_id;
+
+
+// INSERT INTO "movies" ("title", "poster", "description")
+// VALUES ($1, $2, $3)
+// RETURNING "id";
+// SELECT * FROM "movies"
+//   JOIN "movies_genres" ON "movies".id = "movies_genres".movie_id
+//   JOIN "genres" ON "genres".id = "movies_genres".genre_id

@@ -3,11 +3,11 @@ const router = express.Router();
 const pool = require("../modules/pool");
 
 router.get("/:id", (req, res) => {
-    const id = req.params.id
+  const id = req.params.id;
   // Add query to get the description.  I will JOIN tables once I get the details page to show with the description.
   const queryText = `SELECT "movies".title, "movies".description, "movies".poster  
   FROM "movies"
-  JOIN "movie_genres" ON "movie_genres".genre_id = "movies".id
+
   WHERE id = $1`;
   pool
     .query(queryText, [id])
@@ -20,6 +20,13 @@ router.get("/:id", (req, res) => {
     });
 });
 
-
 module.exports = router;
 
+
+
+// --- COULD NOT GET THIS QUERY TO WORK ----
+//   SELECT "movies".title, "movies".description, "movies".poster  
+//   FROM "movies"
+//   JOIN "movies_genres" ON "movies".id = "movies_genres".movie_id
+//   JOIN "genres" ON "genres".id = "movies_genres".genre_id
+//   WHERE "id" = $1

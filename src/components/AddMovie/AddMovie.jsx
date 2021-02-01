@@ -20,21 +20,24 @@ function AddMovie(props) {
         dispatch({type: 'ADD_MOVIE', payload: movie})    
         clearMovieFields();
     }
-      // Clear fields of the form by reseting the user
+      // Clear fields of the form by resetting the user
       const clearMovieFields = () => {
         setMovie('');
     }
-
 
 return (
 <div>
     <h3>Add Movie</h3>
     <form onSubmit={handleSubmit}>
-    <input onChange={(event) => setStudent(event.target.value)} 
-            placeholder="GitHub username" 
-            value={movie}
+    <input onChange={(event) => setMovie(event.target.value)} 
+            placeholder="Movie Title" 
+            value={movie.title}
             />
-    <input type="submit" value="Add Student" />
+             <input onChange={(event) => setMovie(event.target.value)} 
+            placeholder="Description" 
+            value={movie.description}
+            />
+    <input type="submit" value="Add Movie" />
 </form>
 
 </div>
@@ -47,40 +50,3 @@ export default AddMovie;
 
 
 
-// import {useDispatch} from 'react-redux';
-// /*
-// YOU SHOULDNT NEED TO MODIFY ANYTHING IN THIS FILE
-// */
-
-// function StudentForm(props) {
-//     const dispatch = useDispatch();
-//     const [student, setStudent] = useState('');
-
-
-//     // Called when the submit button is pressed
-//     const handleSubmit = (event) => {
-//         event.preventDefault();
-//         dispatch({type: 'ADD_STUDENT', payload: student})    
-//         clearStudentFields();
-//     }
-
-//     // Clear fields of the form by reseting the user
-//     const clearStudentFields = () => {
-//         setStudent('');
-//     }
-
-
-//     return (
-//         <form onSubmit={handleSubmit}>
-//             <input onChange={(event) => setStudent(event.target.value)} 
-//                     placeholder="GitHub username" 
-//                     value={student}
-//                     />
-//             <input type="submit" value="Add Student" />
-//         </form>
-//     );
-    
-// }
-
-
-// export default StudentForm;

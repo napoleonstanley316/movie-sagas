@@ -20,14 +20,9 @@ const history = useHistory()
       history.push('/details')
       };
    
-    //   useEffect(() => {
-    //     dispatch({ type: "FETCH_MOVIES" });
-    //     dispatch({ type: "FETCH_GENRES" });
-    //   }, []);
-    
-
-
+console.log(movie.genre);
 return (
+
 
     <div key={movie.id}>
       <h3>{movie.title}</h3>

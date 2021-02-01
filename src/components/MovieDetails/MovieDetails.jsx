@@ -19,6 +19,17 @@ return (
   <p>{movie?.description}</p>
   <img src={movie?.poster} />
   </div>
+
+  //Still working on this part
+//   <ul>
+//       SHOW ALL FETCH_GENRES
+//       {movie.map(movie => {
+//           return (
+//               <li>{movie.name}</li>
+//           )
+//       })}
+//   </ul>
+
   );
 }
 
