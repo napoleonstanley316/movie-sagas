@@ -5,8 +5,19 @@
 
 INSERT your SQL here :)
 
+SELECT * FROM "movies"
+JOIN "movies_genres" ON "movies".id = "movies_genres".movie_id
+JOIN "genres" ON "genres".id = "movies_genres".genre_id
+WHERE "genres".id = 1;
+
 -- 2. Get the count of movies that have each genre.  
 --  Make sure you get back all the genres!
+
+// I had trouble getting the names to show up
+SELECT COUNT(genre_id)
+FROM movies_genres
+JOIN "genres" ON "genres".id = "movies_genres".movie_id
+GROUP BY "genres".name;
 
 Example Result:
 ---------------------------------
@@ -25,11 +36,12 @@ Example Result:
 
 -- 3. Add the genre "Superhero" to "Star Wars".
 
-
+ALTER TABLE "genres"
+ADD "Superhero" VARCHAR(80)
 
 -- 4. Remove the "Comedy" genre from "Titanic"
 
-
+I was not able to find this answer anywhere.  I will need to get some help on questions 2. and 4.
 
 -- Stretch
 
